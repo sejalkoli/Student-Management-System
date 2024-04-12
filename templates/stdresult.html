@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Course</title>
+    <style>
+    body, ul {margin: 0; padding: 0;}
+    .button-link { display: inline-block; background-color: #007bff; color: #fff; text-decoration: none; padding: 8px 12px; border-radius: 4px; margin-left:25px; }
+    .button-link:hover { background-color: #0056b3; }
+    .button-container { margin-top: 40px; }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    li {
+        float: left;
+        margin-right: 10px;
+    }
+
+
+    .table-link {
+        color: blue; 
+        text-decoration: none; 
+    }
+     table {
+            width: 97%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: none; 
+            text-align: left;
+            padding: 8px;
+            height: 40px; 
+            border-bottom: 1px solid #ddd; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+        }
+        th {
+            background-color:#2a65a1;
+            color: white; 
+            font-weight: bold; 
+            font-size:17px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .button{
+            text-decoration: none;
+
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    
+    <center><h1>Your Course</h1></center><br>
+    <table>  
+        <thead>  
+        <tr>  
+            <th>Name</th>  
+            <th>Email</th>  
+            <th>Date Of Joining</th>  
+            <th>Course</th> 
+            <th>Action</th>
+
+        </tr>  
+        </thead>  
+        <tbody>
+        <tr>  
+            <td>{{ login.name }}</td>  
+            <td>{{ login.email }}</td>  
+            <td>{{ login.date }}</td>  
+            <td>{{ login.course }}</td>
+            <td><a href = "/upgrade/{{ login.department }}/{{ login.email }}" class="button">Upgrade</a></td>
+  
+        </tr>  
+        </tbody> 
+        </table>
+        <div class="button-container">
+        <a href="/"class="button-link">Home</a>  
+
+        </div>
+
+</body>
+</html>

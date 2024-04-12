@@ -1,0 +1,162 @@
+<!-- {% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        form { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 500px; margin: 50px auto; }
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="submit"], input[type="radio"] { width: calc(100% - 20px); padding: 10px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        input[type="submit"] { background-color: #007bff; color: #fff; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+        label { margin-bottom: 6px; display: block; }
+        select { width: calc(100% - 20px); padding: 10px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+    </style> 
+    
+</head>
+<body> 
+    <form action="/enquiry/" method="POST">
+        {% csrf_token %}
+        Full Name: <input type="text" name="name" placeholder="Name">
+        Email: <input type="email" name="email" placeholder="Enter your email">
+        Password: <input type="password" name="password" placeholder="Choose Password">
+        Address: <input type="text" name="address" placeholder="Address">
+        Phone Number: <input type="number" name="contact" placeholder="Enter Phone Number">
+        <label for="education">Education:</label>
+        <div class="education">
+            <input type="radio" id="BE" name="education" value="BE">
+            <label for="BE">BE</label><br>
+            <input type="radio" id="diploma" name="education" value="Diploma">
+            <label for="Diploma">Diploma</label><br>
+        </div>
+        <label for="department"> Department For Your Course: </label>
+        <select id="department" name="department">
+        <option value="">Select Department</option>
+        <option value="IT">IT</option>
+        <option value="Civil">Civil</option>
+        <option value="Mechanical">Mechanical</option>
+        </select>
+        Aaadhar Number: <input type="number" name="aadharno" placeholder="Aadhar Card Number">
+        college: <input type="text" name="clgname" placeholder="college">
+        Reference: <input type="text" name="reference" placeholder="reference">
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</body>
+</html>  -->
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        form { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 500px; width: 100%; margin: 50px auto; }
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="submit"] { width: calc(100% - 20px); padding: 10px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        input[type="submit"] { background-color: #007bff; color: #fff; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+        label { margin-bottom: 1px; display: block; margin-top:10px; margin-left:0px;}
+        select { width: calc(100% - 20px); padding: 10px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        .education { display: block; margin-bottom: 12px; } 
+        .education label { display: block; margin-bottom: 6px; } 
+        .button {
+                display: inline-block;
+                padding: 10px;
+                width: 96%;
+                background-color: #007bff;
+                color: #fff;
+                text-align: center;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 8px 0;
+                box-sizing: border-box;
+                transition: background-color 0.3s;
+                text-decoration: none;
+                font-family: Arial, sans-serif; 
+                font-size: 14px;
+            }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+            .password-conditions {
+            font-size: 13px;
+            color: #828080;
+            margin-top: 5px;
+            margin-left:-23px;
+        }
+    </style> 
+</head>
+<body> 
+    <form action="/enquiry/" method="POST">
+            {% if errors %}
+            <ul style = "color:red;">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        {% comment %} <p style="color: red;">{{ errors }}</p> {% endcomment %}
+        {% csrf_token %}
+        <h2> Add Details </h2>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Choose Password">
+        {% comment %} <p class="password-conditions">Password must meet the following criteria:</p> {% endcomment %}
+        <ul class="password-conditions">
+            <li>Minimum 8 characters long</li>
+            <li>At least one uppercase letter</li>
+            <li>At least one lowercase letter</li>
+            <li>At least one digit</li>
+            <li>At least one special character</li>
+        </ul>
+        
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Address">
+        
+        <label for="contact">Phone Number:</label>
+        <input type="number" id="contact" name="contact" placeholder="Enter Phone Number">
+        
+        <div class="education">
+            <label for="education">Education:</label>
+            <select id="education" name="education">
+                <option value="">Select Education</option>
+                <option value="BE">BE</option>
+                <option value="Diploma">Diploma</option>
+            </select>
+        </div>
+        
+        <label for="department"> Department For Your Course: </label>
+        <select id="department" name="department">
+            <option value="">Select Department</option>
+            <option value="IT">IT</option>
+            <option value="Civil">Civil</option>
+            <option value="Mechanical">Mechanical</option>
+        </select>
+        
+        <label for="aadharno">Aadhar Number:</label>
+        <input type="number" id="aadharno" name="aadharno" placeholder="Aadhar Card Number">
+        
+        <label for="clgname">College:</label>
+        <input type="text" id="clgname" name="clgname" placeholder="College Name">
+        
+        <label for="reference">Reference:</label>
+        <input type="text" id="reference" name="reference" placeholder="Reference">
+        
+        <input type="submit" name="submit" value="Submit">
+        <a href="/" class="button">Home</a>
+
+    </form>
+</body>
+</html>
+

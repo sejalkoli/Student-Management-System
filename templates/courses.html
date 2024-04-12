@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    
+        li {
+            float: left;
+            margin-right: 10px;
+        }
+    
+    
+        .table-link {
+            color: blue; /* Blue color for links within the table */
+            text-decoration: none; /* Underline for links within the table */
+        }
+         table {
+                width: 97%;
+                margin: 20px auto;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: none; /* Remove border between cells */
+                text-align: left;
+                padding: 8px;
+                height: 40px; /* Adjust the height of table cells */
+                border-bottom: 1px solid #ddd; /* Add bottom border for each cell */
+                overflow: hidden; /* Hide overflowing content */
+                text-overflow: ellipsis; /* Show ellipsis (...) for overflow */
+                white-space: nowrap; /* Prevent wrapping of text */
+            }
+            th {
+                background-color:#2a65a1;/* Blue color for table headings */
+                color: white; /* White color for text */
+                font-weight: bold; /* Bold font for headings */
+                font-size:17px;
+            }
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+            tr:hover {
+                background-color: #ddd;
+            }
+            .button{
+                text-decoration: none;
+    
+            }
+        .button {
+            display: inline-block;
+            padding: 10px 20px; 
+            background-color: #007bff; 
+            color: #fff; 
+            text-decoration: none; 
+            border: none; 
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s; 
+            margin-left:35px;
+
+        }
+
+        .button:hover {
+            background-color: #0056b3; 
+        }
+    </style>
+</head>
+<body>
+    <h1> Courses List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Fees</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.coursename }}</td>
+                <td>{{ course.fees }}</td>
+                <td>{{ course.description }}</td>
+                <td><a href = "/enroll/{{ course.id }}"style="text-decoration: none;">Enroll</a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <a href="{% url 'home' %}" class="button">Home</a>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll</title>
+    {% load static %}
+    <style>
+.button {
+            display: inline-block;
+            padding: 10px 20px; 
+            background-color: #007bff; 
+            color: #fff; 
+            text-decoration: none; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer;
+            transition: background-color 0.3s; 
+            margin-left:35px;
+
+        }
+
+        .button:hover {
+            background-color: #0056b3; 
+        }
+
+        .qr-code {
+            max-width: 200px; 
+            display: block; 
+            margin: 0 auto; 
+            margin-top: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Your Course is {{ course.coursename }} and amount to be paid is {{ course.fees }}</h2>
+    </center>
+    <form action="/enroll/{{ course.id }}" method="post">
+        <center>
+            <img class="qr-code" src="{% static 'images/pay.jpg' %}" alt="QR code">
+        </center>
+        {% csrf_token %}
+        <input type="submit" class="button" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiries</title>
+    <style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    li {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .table-link {
+        color: blue; 
+        text-decoration: none; 
+    }
+     table {
+            width: 97%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: none; 
+            text-align: left;
+            padding: 8px;
+            height: 40px; 
+            border-bottom: 1px solid #ddd; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+        }
+        th {
+            background-color:#2a65a1;
+            color: white; 
+            font-weight: bold; 
+            font-size:17px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px; 
+            background-color: #007bff; 
+            color: #fff; 
+            text-decoration: none; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer;
+            transition: background-color 0.3s; 
+            margin-left:35px;
+
+        }
+
+        .button:hover {
+            background-color: #0056b3; 
+        }
+    </style>
+   
+</head>
+<body>
+    <center><h2>Your Students</h2></center>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Education</th>
+                <th>Date Of Joining</th>
+                <th>Course</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for std in students %}
+            <tr>
+                <td>{{ std.name }}</td>
+                <td>{{ std.email }}</td>
+                <td>{{ std.contact }}</td>
+                <td>{{ std.education }}</td>
+                <td>{{ std.date }}</td>
+                <td>{{ std.course }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    </body>
+</html>
