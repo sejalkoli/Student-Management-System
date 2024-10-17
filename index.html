@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:#E2FDF8;
+        }
+        header {
+            background-color: #709fce; 
+            text-align: center;
+            padding: 0px 0;
+            margin-top: 0px;
+            height: 110px;
+        }
+        h2 {
+            margin: 0;
+            color: white; 
+            padding: 40px;
+            border-radius: 5px;
+            font-size: 27px;
+        }
+        .links {
+            text-align: left;
+            background-color: #2a65a1; 
+            padding: 10px;
+            
+            
+        }
+        a {
+            color: #ffffff; 
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 5px;
+            display: inline-block;
+            transition: background-color 0.3s; 
+        }
+        
+        a:hover {
+            background-color: #004080; 
+        }
+        footer {
+            height: 50px;
+            font-size: medium;
+            color: #ffffff;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: #2a65a1;
+            padding: 5px;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
+        footer p {
+            margin: 0; 
+            text-align: center; 
+        }
+        .image{
+            height: 450px; 
+            float: right; 
+            margin-right: 70px;
+            margin-top: 50px;
+
+
+        }
+        .stmnt{
+            font-size:large;             
+            display: flex;
+            margin-top: 140px;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+
+
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Student Management System</h2>
+    </header>
+    <div class="links">
+        <a href="/host">Admin</a>
+        <a href="/trainers_login ">Trainers</a>
+        <a href="{% url 'stdlogin' %} ">Students</a>
+        <a href="/enquiry">Enquiry</a><br>
+    </div>
+    <center><p style="color: red;">{{ msg }}</p></center>
+    <p><img src = "{% static 'images/2632745.jpg' %}"class="image"></p>
+
+    <p class="stmnt"> Welcome To Cadd Centre <br><br>
+    This system allows you to manage students, <br>teachers, and courses in your center.</p>
+
+    <footer>
+        <p> &copy;
+            2024 Student Management System. All Rights Reserved
+        </p>
+    </footer>
+</body>
+</html>
